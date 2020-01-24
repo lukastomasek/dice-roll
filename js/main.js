@@ -8,10 +8,14 @@ let img5 = 'img/dice5.svg';
 let img6 = 'img/dice6.svg';
 
 let image = document.getElementById('img');
+let rollTxt;
+
 
 function RollDice(){
 
-  let rollNum = Math.floor(Math.random() * 6);
+  let rollNum = Math.floor(Math.random() * 6 + 1);
+   rollTxt = document.getElementById('txt').innerHTML =
+   ` <p id="txt" class="roll-txt">you rolled:${rollNum} </p>`;
 
   if(rollNum == 1){
     console.log('number is 1');
@@ -36,9 +40,10 @@ function RollDice(){
     else if(rollNum == 6){
       console.log('number is 6');
       image.src = img6;
+    }else{
+      return;
     }
-  }
-
+}
 
   document.getElementById('rollBtn').addEventListener("click",RollDice);
 
